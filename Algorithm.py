@@ -100,7 +100,7 @@ class CipherMachine:
             print(self.pin_wheels_0)
             return
         else:
-            print("Invalid number of positions entered. Please enter exactly 6 positions between 1 and 38.")
+            print("Invalid number of positions entered. Please enter exactly 6 positions between 1 and 47.")
             return  # Added return statement to exit the function
 
     def shift_bars(self):
