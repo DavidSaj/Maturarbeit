@@ -1,0 +1,124 @@
+.header {
+    background-color: rgb(221, 208, 174);
+    height: 120px;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.line {
+    border-bottom: 4px solid black;
+    position: fixed;
+    top: 120px;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+}
+.body {
+    height: 3000px;
+    margin: 0;
+    padding-top: 140px;
+    padding-left: 500px;
+    padding-right: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(166, 128, 32);
+}
+
+.title {
+    color: #19160E;
+    font-family: "Bodoni Moda";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 105%;
+
+}
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.subsection {
+    color: #19160E;
+    font-family: "Bodoni Moda";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+}
+.subsection2 {
+    color: #19160E;
+    font-family: "Bodoni Moda";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.left-sidebar {
+    background-color: green;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 120px;
+    width: 150px;
+}
+
+.right-sidebar {
+    background-color: green;
+    color: white;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 120px;
+    width: 150px;
+}
+
+
+.container {
+    position: absolute;
+    height: 100%;
+    overflow-y: hidden;
+    width: 50px;
+}
+
+.main-text {
+    position: absolute;
+    align-items: center;
+    margin-top: 7%;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    font-family: "Bodoni Moda";
+    right: 30%;
+    left: 30%;
+}
+
+.text-title {
+    position: absolute;
+    align-items: center; /* Center horizontally */
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    background-color: aqua;
+
+}
+
+
+.text-text{
+    position: absolute;
+    align-items: center; /* Center horizontally */
+    margin-top: 70px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="David Sajosi">
+        <meta name="description" content="The incident around the spying of countrys through the cryptomachines produced by cryptoag.">
+        <title>Matura Project</title>
+        <link rel="icon" href="pictures/iconmat1.png" type="image/x-icon">
+        <link rel="stylesheet" href="main.css" type="text/css">
+        <link rel="stylesheet" href="script.js" type="text/js">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap">
+
+
+    </head>
+
+    <body class="body">
+        <div class="header">
+            <div class="title">The Minerva</div>
+            <div class="content">
+                <div class="subsection">story</div>
+                <div class="subsection2">The Algorithm</div>
+            </div>
+        </div>
+        <div class="left-sidebar">
+            <div class="container">
+                <img id="scrollImage" src="pictures/piano.jpg">
+            </div>
+            <script src="script.js"></script>
+        </div> 
+        <div class="right-sidebar"></div>
+        <div class="main-text">
+            <div class="text-title">A brief summary of the cx-52s story</div>
+            <div class="text-text" id="content-placeholder"></div>
+        </div>
+        <div class="line"></div>
+        <script>
+            // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
+            fetch('content.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        </script>
+     </body>
+</html>
+
