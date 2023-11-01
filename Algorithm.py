@@ -106,11 +106,16 @@ class CipherMachine:
     def shift_bars(self):
         new_pin_wheels = self.current_setup
         self.active_pin = self.pin_wheels_0
+        # Check if each bar should be displaced based on lug and pin wheel configurations
         for i in range(32):
             for j in range(6):
                 lug = self.bar_setups[i]['lug'][j]
                 pin_wheel_active = self.active_pin [j]
                 cam_type = self.bar_setups[i]['cam'][j]
+
+                self.check_list1.append(lug)
+                self.check_list2.append(cam_type)
+                self.check_list3.append(pin_wheel_active)
 
                 # Advance the pin wheel based on the cam type
                 if cam_type == 'A' and lug == 1 and pin_wheel_active == 1:
@@ -135,27 +140,45 @@ class CipherMachine:
 
 
 
+        # Return the bar displacement status
+
     def encrypt_letter(self, letter):
         if letter.isalpha():
             letter = letter.upper()
+
+            # Determine if any bar should be displaced based on the current pin wheel positions
             self.shift_bars()
+            # Encrypt the letter by adding the displacement to the print wheel
             encrypted_char = self.print_wheel[(self.print_wheel.index(letter) + self.bar_displacement_active) % 26]
+            print("selfbar",self.bar_displacement_active)
+            #print("lug", self.check_list1)
+            #print("cam type", self.check_list2) 
+            #print("pinwheelactive", self.check_list3)
+            print("a", self.Acheck)
+            print("b", self.Bcheck)
+            print("c: ", self.Ccheck)
+            # Update the pin wheel positions based on the presence of pins and lug configuration
+
+
             return encrypted_char
         else:
             return letter
 
 
-
+    
     def decrypt_letter(self, letter):
         if letter.isalpha():
             letter = letter.upper()
+
+            # Determine if any bar should be displaced based on the current pin wheel positions
             self.shift_bars()
+            # Decrypt the letter by subtracting the displacement from the print wheel
             decrypted_char = self.print_wheel[(self.print_wheel.index(letter) - self.bar_displacement_active) % 26]
+
+            # Update the pin wheel positions based on the presence of pins and lug configuration
             return decrypted_char
         else:
             return letter
-
-
 
     def decrypt_message(self, message):
         result = ''
@@ -165,10 +188,16 @@ class CipherMachine:
                 result += self.decrypt_letter(char)
                 print("Pin Wheel Positions After Letter:", self.pin_wheels)
             elif self.mode == 'encrypt':
+                # Encryption can be implemented similarly if needed
                 pass
             else:
                 result += char
         return result
+
+
+
+
+
 
 
 
@@ -180,6 +209,7 @@ class CipherMachine:
                 result += self.encrypt_letter(char)
                 print("Pin Wheel Positions After Letter:", self.pin_wheels)
             elif self.mode == 'decrypt':
+                # Decryption can be implemented similarly if needed
                 pass
             else:
                 result += char
