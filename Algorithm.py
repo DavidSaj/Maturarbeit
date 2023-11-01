@@ -152,7 +152,7 @@ class CipherMachine:
             encrypted_char = self.print_wheel[(self.print_wheel.index(letter) + self.bar_displacement_active) % 26]
             print("selfbar",self.bar_displacement_active)
             #print("lug", self.check_list1)
-            #print("cam type", self.check_list2)
+            #print("cam type", self.check_list2) 
             #print("pinwheelactive", self.check_list3)
             print("a", self.Acheck)
             print("b", self.Bcheck)
