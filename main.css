@@ -93,32 +93,30 @@
 
 .main-text {
     position: absolute;
-    align-items: center;
-    margin-top: 7%;
     z-index: 99;
     display: flex;
-    flex-direction: column;
-    font-family: "Bodoni Moda";
+    flex-direction: column; /* Change the flex direction to column */
+    font-family: "Bodoni Moda", serif;
     right: 30%;
     left: 30%;
 }
 
 .text-title {
-    position: absolute;
-    align-items: center; /* Center horizontally */
     font-size: 30px;
-    font-style: normal;
     font-weight: 900;
-    background-color: aqua;
-
+    text-align: center;
 }
 
-
-.text-text{
-    position: absolute;
-    align-items: center; /* Center horizontally */
-    margin-top: 70px;
+.text-text {
     font-size: 15px;
-    font-style: normal;
     font-weight: 900;
+    text-align: center;
+    margin-top: 20px; /* Add margin-top for spacing between title and text */
+}
+/* Add styles for the line */
+.line {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #000; /* Adjust color as needed */
+    z-index: 98; /* Ensure the line appears below text */
 }

@@ -30,18 +30,19 @@
         <div class="right-sidebar"></div>
         <div class="main-text">
             <div class="text-title">A brief summary of the cx-52s story</div>
-            <div class="text-text" id="content-placeholder"></div>
+            <div class="text-text" id="content-placeholder">
+                <script>
+                    // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
+                    fetch('content.txt')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('content-placeholder').innerHTML = data;
+                        })
+                        .catch(error => console.error(error));
+                </script>
+            </div>
         </div>
         <div class="line"></div>
-        <script>
-            // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
-            fetch('content.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error(error));
-        </script>
      </body>
 </html>
 
