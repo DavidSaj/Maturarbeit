@@ -169,36 +169,11 @@ class CipherMachine:
     def decrypt_letter(self, letter):
         if letter.isalpha():
             letter = letter.upper()
-
-            # Determine if any bar should be displaced based on the current pin wheel positions
             self.shift_bars()
-            # Decrypt the letter by subtracting the displacement from the print wheel
             decrypted_char = self.print_wheel[(self.print_wheel.index(letter) - self.bar_displacement_active) % 26]
-
-            # Update the pin wheel positions based on the presence of pins and lug configuration
             return decrypted_char
         else:
             return letter
-
-    def decrypt_message(self, message):
-        result = ''
-
-        for char in message:
-            if self.mode == 'decrypt':
-                result += self.decrypt_letter(char)
-                print("Pin Wheel Positions After Letter:", self.pin_wheels)
-            elif self.mode == 'encrypt':
-                # Encryption can be implemented similarly if needed
-                pass
-            else:
-                result += char
-        return result
-
-
-
-
-
-
 
 
     def process_message(self, message):
@@ -209,8 +184,8 @@ class CipherMachine:
                 result += self.encrypt_letter(char)
                 print("Pin Wheel Positions After Letter:", self.pin_wheels)
             elif self.mode == 'decrypt':
-                # Decryption can be implemented similarly if needed
-                pass
+                result += self.decrypt_letter(char)
+                print("Pin Wheel Positions After Letter:", self.pin_wheels)
             else:
                 result += char
         return result
@@ -243,7 +218,7 @@ class CipherMachine:
             while encrypted_message != '§':
                 self.message.append(encrypted_message)
                 encrypted_message = input("Enter the next letter (or '§' to finish): ")
-            decrypted_message = self.decrypt_message(''.join(self.message))
+            decrypted_message = self.process_message(''.join(self.message))
             print("Decrypted Message:", decrypted_message)
 
 # Example usage:
