@@ -64,13 +64,27 @@
 }
 
 .left-sidebar {
+    display: flex;
+    flex-direction: column;
     background-color: green;
     color: white;
     position: fixed;
     left: 0;
     bottom: 0;
     top: 120px;
-    width: 150px;
+    width: 170px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px; /* Adjust the padding as needed */
+}
+
+#scrollImage,
+#scrollImage2,
+#scrollImage3 {
+    width: 50px; /* Set the width of each image */
 }
 
 .right-sidebar {
@@ -80,22 +94,14 @@
     right: 0;
     bottom: 0;
     top: 120px;
-    width: 150px;
-}
-
-
-.container {
-    position: absolute;
-    height: 100%;
-    overflow-y: hidden;
-    width: 50px;
+    width: 170px;
 }
 
 .main-text {
     position: absolute;
     z-index: 99;
     display: flex;
-    flex-direction: column; /* Change the flex direction to column */
+    flex-direction: column;
     font-family: "Bodoni Moda", serif;
     right: 30%;
     left: 30%;
@@ -111,12 +117,6 @@
     font-size: 15px;
     font-weight: 900;
     text-align: center;
-    margin-top: 20px; /* Add margin-top for spacing between title and text */
+    margin-top: 20px;
 }
 /* Add styles for the line */
-.line {
-    position: absolute;
-    width: 100%;
-    border-top: 1px solid #000; /* Adjust color as needed */
-    z-index: 98; /* Ensure the line appears below text */
-}
