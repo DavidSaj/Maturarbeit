@@ -104,10 +104,10 @@ class CipherMachine:
             return  # Added return statement to exit the function
 
     def shift_bars(self):
-        new_pin_wheels = self.current_setup
         self.active_pin = self.pin_wheels_0
         # Check if each bar should be displaced based on lug and pin wheel configurations
         for i in range(32):
+            new_pin_wheels = self.current_setup
             for j in range(6):
                 lug = self.bar_setups[i]['lug'][j]
                 pin_wheel_active = self.active_pin [j]
@@ -160,7 +160,7 @@ class CipherMachine:
             # Update the pin wheel positions based on the presence of pins and lug configuration
 
 
-            return encrypted_char
+            return encrypted_char 
         else:
             return letter
 
@@ -186,8 +186,8 @@ class CipherMachine:
             elif self.mode == 'decrypt':
                 result += self.decrypt_letter(char)
                 print("Pin Wheel Positions After Letter:", self.pin_wheels)
-            else:
-                result += char
+            else: 
+                print("error")
         return result
 
 
@@ -207,17 +207,17 @@ class CipherMachine:
         self.set_pin_wheels()
 
         if self.mode == 'encrypt':
-            message = input("Enter the message (single letter at a time, '§' to finish): ")
-            while message != '§':
+            message = input("Enter the message (single letter at a time, '<' to finish): ")
+            while message != '<':
                 self.message.append(message)
-                message = input("Enter the next letter (or '§' to finish): ")
+                message = input("Enter the next letter (or '<' to finish): ")
             encrypted_message = self.process_message(''.join(self.message))
             print("Encrypted Message:", encrypted_message)
         elif self.mode == 'decrypt':
-            encrypted_message = input("Enter the encrypted message (single letter at a time, '§' to finish): ")
-            while encrypted_message != '§':
+            encrypted_message = input("Enter the encrypted message (single letter at a time, '<' to finish): ")
+            while encrypted_message != '<':
                 self.message.append(encrypted_message)
-                encrypted_message = input("Enter the next letter (or '§' to finish): ")
+                encrypted_message = input("Enter the next letter (or '<' to finish): ")
             decrypted_message = self.process_message(''.join(self.message))
             print("Decrypted Message:", decrypted_message)
 
