@@ -121,10 +121,12 @@ class CipherMachine:
                 if cam_type == 'A' and lug == 1 and pin_wheel_active == 1:
                     new_pin_wheels[j] = (new_pin_wheels[j] + 1) % 47
                     self.Acheck += 1
-                elif cam_type == 'B' and not (lug == 1 and pin_wheel_active == 1):
+
+                if cam_type == 'B' and (lug != 1 or pin_wheel_active != 1):
                     new_pin_wheels[j] = (new_pin_wheels[j] + 1) % 47
                     self.Bcheck += 1 
-                elif cam_type == 'C':
+
+                if cam_type == 'C':
                     new_pin_wheels[j] = (new_pin_wheels[j] + 1) % 47
                     self.Ccheck += 1 
 
@@ -134,7 +136,10 @@ class CipherMachine:
                 self.pin_wheels = new_pin_wheels
                 self.current_setup = self.pin_wheels
                 self.active_pin = [self.predefined_pinwheels[j][pos - 1] for j, pos in enumerate(self.pin_wheels)]
-
+                
+        print(self.Acheck)
+        print(self.Bcheck)
+        print(self.Ccheck)
         self.bar_displacement = 0
         return self.bar_displacement_active, self.pin_wheels, self.current_setup, self.check_list, self.check_list1, self.check_list2, self.check_list3, self.Acheck, self.Bcheck, self.Ccheck  # Return the bar displacement status after processing all bars
 
@@ -154,9 +159,9 @@ class CipherMachine:
             #print("lug", self.check_list1)
             #print("cam type", self.check_list2) 
             #print("pinwheelactive", self.check_list3)
-            print("a", self.Acheck)
-            print("b", self.Bcheck)
-            print("c: ", self.Ccheck)
+            #print("a", self.Acheck)
+            #print("b", self.Bcheck)
+            #print("c: ", self.Ccheck)
             # Update the pin wheel positions based on the presence of pins and lug configuration
 
 
