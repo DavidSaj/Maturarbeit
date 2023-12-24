@@ -8,3 +8,4 @@ This project entails developing the CX-52 cipher machine's algorithm and creatin
 
 
 to gain a better understanding of the mechanism behind the cyphermachine and thus the algorithm read this: https://www.cryptomuseum.com/crypto/hagelin/cx52/index.htm
+
