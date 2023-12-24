@@ -1,1 +1,11 @@
-This will be the crazy text on the website.
+
+
+The CX-52 Cypermachine, developed in the 1950s, played a significant role in secure communication during the Cold War. This device was a product of Crypto AG, a Swiss company founded by Boris Hagelin. Hagelin, originally involved with AB Cryptograph in Sweden, became notable for his contributions to cryptographic technology.
+
+Crypto AG's journey took a critical turn in 1950 when Hagelin, on a visit to the U.S., agreed to a deal with the CIA. This agreement involved Crypto AG selling machines that the CIA could decipher, allowing them to intercept communications from various countries. In 1957, with Hagelin looking to retire, the CIA covertly bought Crypto AG to maintain control over its operations.
+
+The company's operations under CIA influence continued until 1967 when the CIA and the German intelligence service, the BND, jointly purchased Crypto AG. This partnership was largely secretive until the early 1990s when Hans Bühler, a Crypto AG sales representative, was arrested in Iran on charges of spying. This incident led to public scrutiny and the eventual withdrawal of the BND from the operation.
+
+By the 2000s, advancements in technology reduced the CIA's reliance on Crypto AG. The company was eventually liquidated in 2019, and its operations were revealed to the public. Following this, new companies emerged from the remnants of Crypto AG, signaling the end of a long period of espionage.
+
+The CX-52 Cypermachine, therefore, is not just a cryptographic device; it represents a significant chapter in the history of Cold War espionage. It's a story that highlights the complex interplay between technology, intelligence agencies, and international politics.

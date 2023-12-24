@@ -34,3 +34,8 @@ function initScroll() {
 
 // Initialize the scroll effect when the window is fully loaded
 window.onload = initScroll;
+
+
+function Message2() {
+  pyodide.runPython('cipher_machine.run()');
+}

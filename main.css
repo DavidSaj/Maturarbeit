@@ -90,17 +90,19 @@
 
 .container1 {
     align-items: center;
-    display: block;
+    display: flex;
     flex-direction: row;
     padding-top: 20px; /* Adjust the padding as needed */
+    justify-content: center;
 }
 
 
 .container2 {
     align-items: center;
-    display: block;
+    display: flex;
     flex-direction: row;
     padding-top: 20px; /* Adjust the padding as needed */
+    justify-content: center;
 }
 
 
@@ -141,4 +143,6 @@
 
 
 
-
+.Terminal{
+    margin-top: 200px;
+}

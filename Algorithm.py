@@ -5,6 +5,7 @@ class CipherMachine:
         self.barsetups1 = []  # List to store bar setups for each of the 32 bars
         self.mode = None
         self.message = []
+        self.inputmessage2 = []
         self.pinwpos = []
         self.activepin = [0] * 6
         self.totalbardisplacement = 0
@@ -74,7 +75,7 @@ class CipherMachine:
                 try:
                     x = int(input(f"Enter position for Pin Wheel {g + 1} (1-47): "))
                     if 1 <= x <= 47:
-                        pinwheelconfig = self.predefpinwheels[x]
+                        pinwheelconfig = self.predefpinwheels[g]
                         activepin = pinwheelconfig[x - 1]
                         setup.append(activepin)
                         self.selfdefinedsetup.append(x)
@@ -156,7 +157,7 @@ class CipherMachine:
         return decrypted_char
 
 
-    def message(self, message):
+    def inputmessage(self, message):
         result = ''
         for char in message:
             if self.mode == 'encrypt':
@@ -190,15 +191,15 @@ class CipherMachine:
             while message != '<':
                 self.message.append(message)
                 message = input("Enter the next letter (or '<' to finish): ")
-            encrypted_message = self.message(''.join(self.message))
-            print("Encrypted Message:", encrypted_message)
+            encryptedmessage = self.inputmessage(''.join(self.message))
+            print("Encrypted Message:", encryptedmessage)
         elif self.mode == 'decrypt':
-            encrypted_message = input("Enter the encrypted message \
+            encryptedmessage = input("Enter the encrypted message \
                                       (single letter at a time, '<' to finish): ")
-            while encrypted_message != '<':
-                self.message.append(encrypted_message)
-                encrypted_message = input("Enter the next letter (or '<' to finish): ")
-            decrypted_message = self.message(''.join(self.message))
+            while encryptedmessage != '<':
+                self.message.append(encryptedmessage)
+                encryptedmessage = input("Enter the next letter (or '<' to finish): ")
+            decrypted_message = self.inputmessage(''.join(self.message))
             print("Decrypted Message:", decrypted_message)
 
 # Example usage:
