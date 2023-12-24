@@ -20,6 +20,8 @@ class CipherMachine:
         self.selfdefinedsetup = []
         self.activebardisplacements = 0
 
+        # check icecream for loging test
+
 
         # Here you can define the active pins
         self.predefpinwheels = [
@@ -86,7 +88,9 @@ class CipherMachine:
                     print("Invalid input")
 
         if len(setup) == 6:
-            self.pinwheelsstart = setup
+            self.pinwheelsstart = setup 
+            self.activepin = self.pinwheelsstart
+
             print("Pin Wheel Setup:")
             print(self.pinwheelsstart)
             return
@@ -94,11 +98,11 @@ class CipherMachine:
             print("Invalid number of positions entered. Please enter exactly 6 positions between 1 and 47.") 
                   # is this ever possible? ... Why not make a while to ask for position g ... until they provide a correct number
                   # instead of for to 6 ... do a while until G reaches 7 and only increment g, when the user provided a correct setting?
-
+                #make this more object oriented. 
     def shiftbars(self):
-        self.activepin = self.pinwheelsstart
         for g in range(32):
             updatedpinwheels = self.selfdefinedsetup
+            print(f'A {g} bar jon. A jelenlegi pinwheel pos: {self.selfdefinedsetup}')
             for h in range(6):
                 lug = self.barsetups1[g]['lug'][h]
                 activitycheck = self.activepin[h]
@@ -113,7 +117,7 @@ class CipherMachine:
                     updatedpinwheels[h] = (updatedpinwheels[h] + 1) % 47
                     self.Acheck += 1
 
-                if cam_type == 'B' and (lug != 1 and activitycheck != 1): 
+                if cam_type == 'B' and (lug != 1 or activitycheck != 1): 
                     updatedpinwheels[h] = (updatedpinwheels[h] + 1) % 47
                     self.Bcheck += 1 
 
@@ -128,6 +132,8 @@ class CipherMachine:
                 self.selfdefinedsetup = self.pinwheels
                 self.activepin = [self.predefpinwheels[h][x - 1] \
                                    for h, x in enumerate(self.pinwheels)]
+                
+
                 
         print(self.Acheck)
         print(self.Bcheck)
@@ -173,7 +179,7 @@ class CipherMachine:
 
 
 
-    def run(self):
+    def run(self, startpos:[0] * 6 = None):
         while True:
             action = input("Do you want to encrypt or decrypt? (e/d): ")
             if action.lower() == 'e':
@@ -185,7 +191,10 @@ class CipherMachine:
             else:
                 print("Invalid input. Please enter 'e' for encrypt or 'd' for decrypt.")
 
-        self.setpinofpinwheels()
+        if startpos:
+            self.pinwheelsstart = startpos
+        else: 
+            self.setpinofpinwheels()
 
         if self.mode == 'encrypt':
             message = input("Enter the message (single letter at a time, '<' to finish): ")
@@ -205,4 +214,4 @@ class CipherMachine:
 
 # Example usage:
 cipher_machine = CipherMachine()
-cipher_machine.run()
+cipher_machine.run([1,1,1,1,1,1])
