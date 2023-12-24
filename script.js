@@ -4,7 +4,7 @@ function handleScroll(images, multipliers) {
 
   images.forEach((img, index) => {
     if (img) { // Check if the image element exists
-      const movement = scrollPosition * multipliers[index];
+      const movement = scrollPosition * multipliers[index] % 1000;
       img.style.transform = `translateY(${movement}px)`;
     }
   });

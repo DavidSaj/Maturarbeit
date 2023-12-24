@@ -91,8 +91,9 @@ class CipherMachine:
             print(self.pinwheelsstart)
             return
         else:
-            print("Invalid number of positions entered. Please enter exactly \
-                  6 positions between 1 and 47.")
+            print("Invalid number of positions entered. Please enter exactly 6 positions between 1 and 47.") 
+                  # is this ever possible? ... Why not make a while to ask for position g ... until they provide a correct number
+                  # instead of for to 6 ... do a while until G reaches 7 and only increment g, when the user provided a correct setting?
 
     def shiftbars(self):
         self.activepin = self.pinwheelsstart
