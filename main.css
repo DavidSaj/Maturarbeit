@@ -88,22 +88,15 @@
     width: 170px;
 }
 
-.container1 {
+.container1, .container2 {
     align-items: center;
     display: flex;
-    flex-direction: row;
-    padding-top: 20px; /* Adjust the padding as needed */
+    flex-direction: row; /* Change from row to column */
     justify-content: center;
 }
 
 
-.container2 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    padding-top: 20px; /* Adjust the padding as needed */
-    justify-content: center;
-}
+
 
 
 #scrollImage,
@@ -115,6 +108,13 @@
     width: 50px; /* Set the width of each image */
 }
 
+#scrollImage, #scrollImage2, #scrollImage3 {
+    background-image: url('pictures/edited T.png'); /* path to your left sidebar image */
+}
+
+#scrollImage4, #scrollImage5, #scrollImage6 {
+    background-image: url('pictures/edited T.png'); /* path to your right sidebar image */
+}
 
 
 .main-text {
