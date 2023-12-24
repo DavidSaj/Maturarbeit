@@ -1,3 +1,4 @@
+
 .header {
     background-color: rgb(221, 208, 174);
     height: 120px;
@@ -63,7 +64,7 @@
     font-weight: bold;
 }
 
-.left-sidebar {
+.leftsidebar {
     display: flex;
     flex-direction: column;
     background-color: green;
@@ -75,19 +76,9 @@
     width: 170px;
 }
 
-.container {
+.rightsidebar {
     display: flex;
-    flex-direction: row;
-    padding-top: 20px; /* Adjust the padding as needed */
-}
-
-#scrollImage,
-#scrollImage2,
-#scrollImage3 {
-    width: 50px; /* Set the width of each image */
-}
-
-.right-sidebar {
+    flex-direction: column;
     background-color: green;
     color: white;
     position: fixed;
@@ -96,6 +87,33 @@
     top: 120px;
     width: 170px;
 }
+
+.container1 {
+    align-items: center;
+    display: block;
+    flex-direction: row;
+    padding-top: 20px; /* Adjust the padding as needed */
+}
+
+
+.container2 {
+    align-items: center;
+    display: block;
+    flex-direction: row;
+    padding-top: 20px; /* Adjust the padding as needed */
+}
+
+
+#scrollImage,
+#scrollImage2,
+#scrollImage3,
+#scrollImage4,
+#scrollImage5,
+#scrollImage6 {
+    width: 50px; /* Set the width of each image */
+}
+
+
 
 .main-text {
     position: absolute;
@@ -120,3 +138,7 @@
     margin-top: 20px;
 }
 /* Add styles for the line */
+
+
+
+
