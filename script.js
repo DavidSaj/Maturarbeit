@@ -4,7 +4,7 @@ function handleScroll(images, multipliers) {
 
   images.forEach((img, index) => {
     if (img) { // Check if the image element exists
-      const movement = scrollPosition * multipliers[index];
+      const movement = scrollPosition * multipliers[index] % 798;
       img.style.transform = `translateY(${movement}px)`;
     }
   });
@@ -24,7 +24,7 @@ function initScroll() {
     document.getElementById('scrollImage6')
   ];
 
-  const multipliers = [-1, 1, 0.5, 1, -1, 0.5]; // Adjust the multipliers as needed
+  const multipliers = [-0.8, 1.2, 0.4, 0.7, -1.4, 0.5]; // Adjust the multipliers as needed
 
   window.addEventListener('scroll', () => {
     handleScroll(leftImages, multipliers.slice(0, 3));
