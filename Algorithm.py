@@ -25,7 +25,7 @@ class CipherMachine:
 
         # Here you can define the active pins
         self.predefpinwheels = [
-        [0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+        [1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
         [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1],
         [1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0],
         [0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1],
@@ -37,7 +37,7 @@ class CipherMachine:
         # The lesft is for the lug placement and right for the cam types on the bar. 
         self.barsetups1 = [
         {'lug': [0, 0, 0, 0, 0, 0], 'cam': ['A', '0', '0', '0', '0', '0']},
-        {'lug': [0, 0, 0, 0, 0, 0], 'cam': ['B', '0', '0', '0', '0', '0']},
+        {'lug': [1, 0, 0, 0, 0, 0], 'cam': ['B', '0', '0', '0', '0', '0']},
         {'lug': [1, 0, 0, 0, 0, 0], 'cam': ['0', 'A', '0', '0', '0', '0']},
         {'lug': [1, 0, 0, 0, 0, 0], 'cam': ['0', 'B', '0', '0', '0', '0']},
         {'lug': [1, 0, 0, 0, 0, 0], 'cam': ['0', '0', 'A', '0', '0', '0']},
@@ -104,16 +104,15 @@ class CipherMachine:
     def shiftbars(self):
         for g in range(32):
             updatedpinwheels = self.selfdefinedsetup
-            print(f'A {g} bar jon. A jelenlegi pinwheel pos: {self.selfdefinedsetup}')
+            #print(f'A {g} bar jon. A jelenlegi pinwheel pos: {self.selfdefinedsetup}')
             for h in range(6):
                 lug = self.barsetups1[g]['lug'][h]
                 activitycheck = self.activepin[h]
                 cam_type = self.barsetups1[g]['cam'][h]
-
+                
                 self.check_list1.append(lug)
                 self.check_list2.append(cam_type)
                 self.check_list3.append(activitycheck)
-
                 # Advance the pin wheel based on the cam type
                 if cam_type == 'A' and lug == 1 and activitycheck == 1:
                     updatedpinwheels[h] = (updatedpinwheels[h] + 1) % 47
@@ -134,6 +133,8 @@ class CipherMachine:
                 self.selfdefinedsetup = self.pinwheels
                 self.activepin = [self.predefpinwheels[h][x - 1] \
                                    for h, x in enumerate(self.pinwheels)]
+                
+                #print(f'{h}: A lug: {lug}, a camtype: {cam_type}, a activitycheck: {activitycheck}, A: {self.Acheck}, B: {self.Bcheck}, C: {self.Ccheck}, activebardisplacement: {self.activebardisplacements}')
                 
 
                 
@@ -181,39 +182,48 @@ class CipherMachine:
 
 
 
-    def run(self, startpos:[0] * 6 = None):
-        while True:
-            action = input("Do you want to encrypt or decrypt? (e/d): ")
-            if action.lower() == 'e':
-                self.mode = 'encrypt'
-                break
-            elif action.lower() == 'd':
-                self.mode = 'decrypt'
-                break
-            else:
-                print("Invalid input. Please enter 'e' for encrypt or 'd' for decrypt.")
+    def run(self, startpos:[0] * 6 = None, mode: str = None, msg:[] = None):
+        
+        if mode : self.mode = mode
+        else:
+            while True:
+                action = input("Do you want to encrypt or decrypt? (e/d): ")
+                if action.lower() == 'e':
+                    self.mode = 'encrypt'
+                    break
+                elif action.lower() == 'd':
+                    self.mode = 'decrypt'
+                    break
+                else:
+                    print("Invalid input. Please enter 'e' for encrypt or 'd' for decrypt.")
 
         if startpos:
-            self.pinwheelsstart = startpos
+            self.selfdefinedsetup = startpos
         else: 
             self.setpinofpinwheels()
 
         if self.mode == 'encrypt':
-            message = input("Enter the message (single letter at a time, '<' to finish): ")
-            while message != '<':
-                self.message.append(message)
-                message = input("Enter the next letter (or '<' to finish): ")
+            if msg:
+                message = msg
+            else:
+                message = input("Enter the message (single letter at a time, '<' to finish): ")
+                while message != '<':
+                    self.message.append(message)
+                    message = input("Enter the next letter (or '<' to finish): ")
             encryptedmessage = self.inputmessage(''.join(self.message))
             print("Encrypted Message:", encryptedmessage)
         elif self.mode == 'decrypt':
-            encryptedmessage = input("Enter the encrypted message \
-                                      (single letter at a time, '<' to finish): ")
-            while encryptedmessage != '<':
-                self.message.append(encryptedmessage)
-                encryptedmessage = input("Enter the next letter (or '<' to finish): ")
+            if msg:
+                message = msg
+            else:
+                encryptedmessage = input("Enter the encrypted message \
+                                        (single letter at a time, '<' to finish): ")
+                while encryptedmessage != '<':
+                    self.message.append(encryptedmessage)
+                    encryptedmessage = input("Enter the next letter (or '<' to finish): ")
             decrypted_message = self.inputmessage(''.join(self.message))
             print("Decrypted Message:", decrypted_message)
 
 # Example usage:
 cipher_machine = CipherMachine()
-cipher_machine.run([1,1,1,1,1,1])
+cipher_machine.run()
