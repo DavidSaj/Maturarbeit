@@ -1,6 +1,5 @@
 
 .header {
-    background-color: #F7BA71;
     height: 120px;
     top: 0;
     right: 0;
@@ -11,6 +10,9 @@
     align-items: center;
     z-index: 100;
     box-shadow: 0px 0px 15px #000;
+    background-color: #F7BA71;
+    background-image: url('pictures/repeating-triangles\ \(1\).svg');
+    background-size: cover;
 
 }
 
@@ -34,6 +36,8 @@
     align-items: center;
     background-color: #FCCB82;
     color: #484041;
+    background-image: url(pictures/longtextureimage.png)
+
 }
 
 .title {
@@ -43,7 +47,7 @@
     font-style: normal;
     font-weight: 900;
     line-height: 105%;
-    margin-left: 25px;
+    margin-left: 30px;
 
 }
 .content {
@@ -66,6 +70,15 @@
     font-size: 18px;
     font-style: normal;
     font-weight: bold;
+}
+
+.subsection, .subsection2 {
+    cursor: pointer; 
+    transition: color 0.3s ease; 
+}
+
+.subsection:hover, .subsection2:hover {
+    color: #ffffff; 
 }
 
 .leftsidebar {
@@ -95,10 +108,10 @@
 .container1, .container2 {
     align-items: center;
     display: flex;
-    flex-direction: row; /* Change from row to column */
+    flex-direction: row; 
     justify-content: center;
     
-    margin-top: -957px; /* Height of one "section" */
+    margin-top: -957px; 
 }
 
 
@@ -117,18 +130,18 @@
 #scrollImage4,
 #scrollImage5,
 #scrollImage6 {
-    width: 50px; /* Set the width of each image */
+    width: 50px; 
     box-shadow: 0px 0px 15px #000;
 
 }
 
 #scrollImage, #scrollImage2, #scrollImage3 {
-    background-image: url('pictures/edited T.png'); /* path to your left sidebar image */
+    background-image: url('pictures/edited T.png'); 
     margin-left: 5px;
 }
 
 #scrollImage4, #scrollImage5, #scrollImage6 {
-    background-image: url('pictures/edited T.png'); /* path to your right sidebar image */
+    background-image: url('pictures/edited T.png');
     margin-right: 5px;
 }
 
@@ -155,10 +168,21 @@
     text-align: center;
     margin-top: 20px;
 }
-/* Add styles for the line */
 
 
 
-.Terminal{
-    margin-top: 200px;
+.algtitle {
+    margin-top: 100px;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+.Terminal {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
 }

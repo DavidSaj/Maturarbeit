@@ -24,7 +24,7 @@ function initScroll() {
     document.getElementById('scrollImage6')
   ];
 
-  const multipliers = [-0.8, 1.2, 0.4, 0.7, -1.4, 0.5]; // Adjust the multipliers as needed
+  const multipliers = [-0.8, 1.2, 0.4, 0.7, -1.4, 0.5];
 
   window.addEventListener('scroll', () => {
     handleScroll(leftImages, multipliers.slice(0, 3));
@@ -32,7 +32,7 @@ function initScroll() {
   });
 }
 
-// Initialize the scroll effect when the window is fully loaded
+
 window.onload = initScroll;
 
 

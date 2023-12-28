@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="main.css" type="text/css">
         <link rel="stylesheet" href="script.js" type="text/JavaScript">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap">
-        <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
-        <link rel="stylesheet" href="Algorithm.py" type="text/python">       
-        <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
 
     </head>
 
@@ -19,8 +16,8 @@
         <div class="header">
             <div class="title">The Minerva</div>
             <div class="content">
-                <div class="subsection">Story</div>
-                <div class="subsection2">The Algorithm</div>
+                <div id="story.1" class="subsection">Story</div>
+                <div id="algorithm.1" class="subsection2">The Algorithm</div>
             </div>
         </div>
         <div class="rightsidebar">
@@ -29,7 +26,6 @@
                 <img id="scrollImage5" src="pictures/edited T.png">
                 <img id="scrollImage6" src="pictures/edited T.png">
             </div>
-            <script src="script.js"></script>
         </div>
         <div class="leftsidebar">
             <div class="container1">
@@ -37,29 +33,63 @@
                 <img id="scrollImage2" src="pictures/edited T.png">
                 <img id="scrollImage3" src="pictures/edited T.png">
             </div>
-            <script src="script.js"></script>
         </div> 
         <div class="main-text">
-            <div class="text-title">The CX-52 Cypermachine and Its Role in Cold War Espionage</div>
+            <div id="titleoftext" class="text-title">The CX-52 Cypermachine and Its Role in Cold War Espionage</div>
             <div class="text-text" id="content-placeholder">
-                <script>
-                    // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
-                    fetch('content.txt')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.getElementById('content-placeholder').innerHTML = data;
-                        })
-                        .catch(error => console.error(error));
-                </script>
             </div>
-            <div class="Terminal">
+            <div id="algorithm" class="algtitle">
                 The Algorithm
-                <iframe height="400px" width="100%" src="https://replit.com/@sojasauce3/Ciphermachine?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
             </div>
+            <div class="Terminal" id="content-placeholder2"></div>
+            <div>
+                <iframe height="400px" width="100%" src="https://replit.com/@sojasauce3/Ciphermachine?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+
+
         </div>
         <div class="line"></div>
         <script src="script.js"></script>
+        <script>
+            document.getElementById('story.1').addEventListener('click', function() {
+                const target = document.getElementById('titleoftext');
+                const offset = 100; // Adjust this value to control how far above the target you want to land
+
+                // Scroll to the target position minus the offset
+                window.scrollTo({
+                    top: target.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            });
+            document.getElementById('algorithm.1').addEventListener('click', function() {
+                const target = document.getElementById('algorithm');
+                const offset = 10; // Adjust this value to control how far above the target you want to land
+
+                // Scroll to the target position minus the offset
+                window.scrollTo({
+                    top: target.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+        <script>
+            // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
+            fetch('content.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        </script>
+        <script>
+            // Use JavaScript to fetch the content from content.txt and insert it into the text-text div.
+            fetch('contentalg.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder2').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        </script>
      </body>
 </html>
 
