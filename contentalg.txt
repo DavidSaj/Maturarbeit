@@ -1,3 +1,3 @@
 This cipher machine functions using adjustable pinwheel positions and an option to select either decryption or encryption. Please input your choice of numbers ranging from 1 to 47 for the pinwheel position. Enter the numbers carefully, as rapid typing might cause the code to respond slowly. To execute the code, simply press "Run". Remember, to decipher a message that you have encrypted, you must use the same pinwheel configuration that was set during the encryption process.
-
 Update 2024: Replit has announced that Iframes will not be runnable after 2024. To run the program the Replit page itself has to be visited.
+https://blog.replit.com/social-updates
