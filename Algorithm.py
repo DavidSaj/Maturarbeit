@@ -217,7 +217,7 @@ class CipherMachine:
                 message = msg
             else:
                 encryptedmessage = input("Enter the encrypted message \
-                                        (single letter at a time, '<' to finish): ")
+                                        single letter at a time, '<' to finish): ")
                 while encryptedmessage != '<':
                     self.message.append(encryptedmessage)
                     encryptedmessage = input("Enter the next letter (or '<' to finish): ")
