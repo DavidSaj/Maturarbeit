@@ -97,14 +97,12 @@ class CipherMachine:
         else:
 
             print("Invalid number of positions entered. Please enter exactly 6 positions between 1 and 47.") 
-                  # is this ever possible? ... Why not make a while to ask for position g ... until they provide a correct number
-                  # instead of for to 6 ... do a while until G reaches 7 and only increment g, when the user provided a correct setting?
-                #make this more object oriented. 
+
 
     def shiftbars(self):
         for g in range(32):
             updatedpinwheels = self.selfdefinedsetup
-            #print(f'A {g} bar jon. A jelenlegi pinwheel pos: {self.selfdefinedsetup}')
+
             for h in range(6):
                 lug = self.barsetups1[g]['lug'][h]
                 activitycheck = self.activepin[h]
@@ -134,7 +132,6 @@ class CipherMachine:
                 self.activepin = [self.predefpinwheels[h][x - 1] \
                                    for h, x in enumerate(self.pinwheels)]
                 
-                #print(f'{h}: A lug: {lug}, a camtype: {cam_type}, a activitycheck: {activitycheck}, A: {self.Acheck}, B: {self.Bcheck}, C: {self.Ccheck}, activebardisplacement: {self.activebardisplacements}')
                 
 
                 
