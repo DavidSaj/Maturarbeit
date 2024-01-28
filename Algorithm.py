@@ -125,7 +125,7 @@ class CipherMachine:
                     self.Ccheck += 1 
 
                 if lug == 1 and activitycheck == 1: 
-                    self.totalbardisplacement += 1  #here is the main problem.... 
+                    self.totalbardisplacement += 1  
                 self.activebardisplacements = self.totalbardisplacement 
                 self.pinwheels = updatedpinwheels
                 self.selfdefinedsetup = self.pinwheels
@@ -213,8 +213,7 @@ class CipherMachine:
             if msg:
                 message = msg
             else:
-                encryptedmessage = input("Enter the encrypted message \
-                                        single letter at a time, '<' to finish): ")
+                encryptedmessage = input("Enter the encrypted message single letter at a time, '<' to finish): ")
                 while encryptedmessage != '<':
                     self.message.append(encryptedmessage)
                     encryptedmessage = input("Enter the next letter (or '<' to finish): ")
